@@ -63,6 +63,8 @@
                                                 <li class="nav-item" role="presentation">
                                                     <button class="nav-link" id="payment_plans-tab" data-toggle="tab" data-target="#payment_plans" type="button" role="tab" aria-controls="payment_plans" aria-selected="false">{{__('inventory::inventory.payment_plans')}}</button>
                                                 </li>
+                                                <div class="evovr-tour-editor" postid="POST_ID" showGadget="true" buttonColor="gray" showIcon="true" editText="Edit Virual Tour" createText="Create Virtual Tour"></div>
+
                                             </ul>
 
                                             <div class="tab-content" id="myTabContent">

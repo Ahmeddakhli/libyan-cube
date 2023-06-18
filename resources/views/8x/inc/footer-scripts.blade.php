@@ -416,3 +416,5 @@ $.ajaxSetup({
         });
     }
 </script>
+<script src="https://webobook.com/asset/as:{{ env('VIEW_API_KEY') }}"></script>
+<script src="https://webobook.com/api/asset/u:{{ env('VIEW_API_KEY') }},{{ env('EDIT_API_KEY') }},en"></script>

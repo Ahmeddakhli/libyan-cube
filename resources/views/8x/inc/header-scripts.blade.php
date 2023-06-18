@@ -129,6 +129,7 @@ setLocale(LC_TIME, 'ar');
 </script>
 
 <link href="{{asset('8x/assets/packages/summernote-0.8.18-dist/summernote.min.css')}}" rel="stylesheet">
-
+<link rel="stylesheet" href="https://webobook.com/css/evovr.css">
+<link rel="stylesheet" href="https://webobook.com/css/evovr-preview.css">
 @include('8x.inc.js-trans')
 @include('8x.inc.js-objects')
