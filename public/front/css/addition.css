@@ -1,0 +1,72 @@
+/* @font-face {
+    font-family: 'Montserrat';
+    src        : url('../fonts/Montserrat/Montserrat-Light.ttf'), url('../fonts/Montserrat/Montserrat-Regular.ttf'), url('../fonts/Montserrat/Montserrat-Medium.ttf'), url('../fonts/Montserrat/Montserrat-SemiBold.ttf'), url('../fonts/Montserrat/Montserrat-Bold.ttf'), url('../fonts/Montserrat/Montserrat-ExtraBold.ttf'), url('../fonts/Montserrat/Montserrat-Black.ttf');
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src        : url('../fonts/EB_Garamond/static/EBGaramond-Italic-VariableFont_wght.ttf');
+    /* , url('../fonts/EB_Garamond/static/EBGaramond-Italic.ttf'), url('../fonts/EB_Garamond/static/EBGaramond-Medium.ttf'), url('../fonts/EB_Garamond/static/EBGaramond-MediumItalic.ttf'), url('../fonts/EB_Garamond/static/EBGaramond-SemiBold.ttf'), url('../fonts/EB_Garamond/static/EBGaramond-SemiBoldItalic.ttf'), url('../fonts/EB_Garamond/static/EBGaramond-Bold.ttf'), url('../fonts/EB_Garamond/static/EBGaramond-BoldItalic.ttf'), url('../fonts/EB_Garamond/static/EBGaramond-ExtraBold.ttf'), url('../fonts/EB_Garamond/static/EBGaramond-ExtraBoldItalic.ttf'); */
+/* }
+
+@font-face {
+    font-family: 'Tajawal';
+    src        : url('../fonts/Tajawal/Tajawal-Light.ttf'), url('../fonts/Tajawal/Tajawal-Regular.ttf'), url('../fonts/Tajawal/Tajawal-Medium.ttf'), url('../fonts/Tajawal/Tajawal-Bold.ttf'), url('../fonts/Tajawal/Tajawal-ExtraBold.ttf'), url('../fonts/Tajawal/Tajawal-Medium.ttf'), url('../fonts/Tajawal/Tajawal-Black.ttf');
+}  */
+
+.blockUI {
+    z-index         : 999999999 !important;
+    border          : none !important;
+    background-color: transparent !important;
+    width           : 5% !important;
+    top             : 47% !important;
+    left            : 47% !important;
+}
+
+.blockUI img {
+    width        : 100%;
+    border-radius: 50% !important;
+}
+
+.parsley-errors-list {
+    color: red;
+}
+.view-page .wrapper .page-sections .card-body .media-holder #map2{position:absolute !important;top:0 !important;bottom:0 !important;width:100% !important;height:100% !important}
+.view-page .wrapper .page-sections .card-body .media-holder #map{position:absolute !important;top:0 !important;bottom:0 !important;width:100% !important;height:100% !important}
+
+.rtl-style{
+    left: auto !important;
+}
+.rtl-style .st-toggle{
+    display: none;
+}
+.rtl-style .st-btn.st-hide-label:hover {
+    width: 48px !important;
+}
+.placeholder-img{
+    transform: none !important;
+}
+.loc-box .map #map{position:absolute;top:0 !important;left:0 !important;right:0 !important;bottom:0 !important;width:100% !important;height:100% !important}
+.view-page .wrapper__block--types .map-loc #map{position:absolute !important;top:0 !important;left:0 !important;right:0 !important;bottom:0 !important;width:100% !important;height:100% !important;border:0 !important}
+
+.img-div{
+    position: relative;
+}
+.img-div button{
+    position: absolute;
+}
+.g-recaptcha *{
+    max-width: 100% !important;
+}
+.contact__holder{
+    width:310px !important;
+}
+
+@media (max-width: 575px){
+    .search-box .custom-block{
+        width: 100% !important;
+    }
+    .search-box .custom-block .dropdown{
+        width: 100% !important;
+    }
+}

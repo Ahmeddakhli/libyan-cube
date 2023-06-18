@@ -1,0 +1,15 @@
+{
+    "name": "Currencies",
+    "alias": "currencies",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Currencies\\Providers\\CurrenciesServiceProvider",
+        "Modules\\Currencies\\Providers\\CurrenciesEventServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

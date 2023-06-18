@@ -1,0 +1,14 @@
+{
+    "name": "About",
+    "alias": "about",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\About\\Providers\\AboutServiceProvider",
+        "Modules\\About\\Providers\\AboutEventServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

@@ -1,0 +1,31 @@
+<?php
+
+return [
+    'tags' => 'Tags',
+    'select_tags' => 'Select Tags',
+    'tags_are_required' => 'Tags are required',
+    'tag_not_found_or_you_are_not_authorized_to_edit_the_tag' => 'Tag not found or you are not authorized to edit the tag',
+    'filter' => 'Filter',
+    'select_created_at_range' => 'Created at range',
+    'created_at' => 'Created At',
+    'select_last_updated_at_range' => 'Last updated at range',
+    'last_updated_at' => 'Last Updated At',
+    'apply' => 'Apply',
+    'reset' => 'Reset',
+    'list' => 'List',
+    'create_new' => 'Create New',
+    'id' => 'ID#',
+    'tag' => 'Tag',
+    'actions' => 'Actions',
+    'update_tag' => 'Update Tag',
+    'delete_tag' => 'Delete Tag',
+    'create_tag' => 'Create Tag',
+    'create' => 'Create',
+    'please_enter_the_tag' => 'Please, enter the tag',
+    'tag_max_is_150_characters_long' => 'Tag maximum number of characters is 150 characters long',
+    'update_tag' => 'Update tag',
+    'color' => 'Color',
+    'please_enter_the_color' => 'Please, enter the color',
+    'color_max_is_150_characters_long' => 'color maximum number of characters is 150 characters long',
+
+];

@@ -1,0 +1,25 @@
+{
+    "name": "8WORXCRM/internationalizations",
+    "description": "",
+    "authors": [
+        {
+            "name": "Mohamed Alansary",
+            "email": "cod3r30@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Internationalizations\\Providers\\InternationalizationsServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Internationalizations\\": ""
+        }
+    }
+}

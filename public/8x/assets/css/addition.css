@@ -1,0 +1,43 @@
+a.data-repeater-delete{
+    background-color: red !important;
+    width: 100%;
+}
+
+button.data-repeater-delete{
+    background-color: red !important;
+}
+.kt-form h4{
+    background-color: gray;
+    color: white !important;
+    padding: 0.5rem !important;
+
+}
+
+.img-div{
+    position: relative;
+    margin-top: 1rem;
+    width:50%;
+}
+.img-div button{
+    position: absolute;
+    top: -10;
+    left: -10;
+    background-color: red;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    width: 2rem;
+    height: 2rem;
+}
+.kt-header-mobile .kt-header-mobile__toolbar .kt-header-mobile__toolbar-topbar-toggler i{
+    color: #4F6081 !important;
+}
+.m-login.m-login--2 .m-login__wrapper .m-login__container .m-login__form .m-login__form-action .m-login__btn{
+    font-size: 1.6rem !important; 
+}
+/* .kt-header__topbar .kt-header__topbar-item.kt-header__topbar-item--user .kt-header__topbar-wrapper img{
+    width: 50px !important;
+} */
+.dropdown-menu{
+    z-index: 999 !important;
+}

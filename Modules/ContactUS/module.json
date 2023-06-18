@@ -1,0 +1,14 @@
+{
+    "name": "ContactUS",
+    "alias": "contactus",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\ContactUS\\Providers\\ContactUSServiceProvider",
+        "Modules\\ContactUS\\Providers\\ContactUSEventServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

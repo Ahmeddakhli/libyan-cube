@@ -1,0 +1,25 @@
+{
+    "name": "8WORXCRM/currencies",
+    "description": "",
+    "authors": [
+        {
+            "name": "Mohamed Alansary",
+            "email": "cod3r30@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Currencies\\Providers\\CurrenciesServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Currencies\\": ""
+        }
+    }
+}

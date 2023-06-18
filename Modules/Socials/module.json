@@ -1,0 +1,14 @@
+{
+    "name": "Socials",
+    "alias": "socials",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\Socials\\Providers\\SocialsServiceProvider",
+        "Modules\\Socials\\Providers\\SocialsEventServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

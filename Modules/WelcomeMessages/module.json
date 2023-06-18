@@ -1,0 +1,14 @@
+{
+    "name": "WelcomeMessages",
+    "alias": "WelcomeMessages",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\WelcomeMessages\\Providers\\WelcomeMessagesServiceProvider",
+        "Modules\\WelcomeMessages\\Providers\\WelcomeMessagesEventServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

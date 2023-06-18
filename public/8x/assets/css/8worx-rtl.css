@@ -1,0 +1,21 @@
+@font-face{font-family: 'DroidArabicKufiBold';src: url('DroidArabicKufiBold.ttf') format('truetype');font-weight: bold;font-style: normal;}
+@font-face{font-family: 'DroidArabicKufiRegular';src: url('DroidArabicKufiRegular.ttf') format('truetype');font-weight: normal;font-style: normal;}
+.kt-body{margin-top:48px !important}
+html, body, .introjs-button{font-family: 'DroidArabicKufiRegular', serif !important}
+ul.ks-cboxtags li label{font-size:.9rem !important}
+.kt-header-menu-wrapper .kt-header-menu .kt-menu__nav > .kt-menu__item > .kt-menu__link{padding: 0.75rem .7rem !important}
+.kt-header-menu .kt-menu__nav > .kt-menu__item > .kt-menu__link .kt-menu__link-text{font-weight: 600 !important;font-size: .9rem;}
+.dt-buttons, .dataTables_info, .dataTables_length{float:right !important}
+.kt-content, .kt-footer{padding:0 !important}
+.kt-font-success{color: #0ea767 !important}
+.noti-badge{font-family: Poppins !important}
+.kt-header__topbar .kt-header__topbar-item.kt-header__topbar-item--user .kt-header__topbar-username{padding: 0 0.55rem !important}
+.selected-dt-row:after{left:-15px;right:auto !important;border-left: 0 solid transparent !important;border-right: 15px solid #e6eaf5 !important;}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {font-weight: 600 !important}
+.introjs-nextbutton{float: left;}
+.introjs-skipbutton{float: right;}
+.introjs-showElement{z-index: 100000000000000 !important}
+.daterangepicker {z-index: 98 !important;}
+.kt-footer__bottom {
+    width: 100% !important;
+}

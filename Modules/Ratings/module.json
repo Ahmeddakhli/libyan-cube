@@ -1,0 +1,14 @@
+{
+    "name": "Ratings",
+    "alias": "ratings",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\Ratings\\Providers\\RatingsServiceProvider",
+        "Modules\\Ratings\\Providers\\RatingsEventServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

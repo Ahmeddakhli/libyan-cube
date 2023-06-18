@@ -1,0 +1,271 @@
+@extends('dashboard.layouts.basic')
+
+@section('content')
+<!--begin::Form-->
+<form action="{{route('testimonials.update')}}" method="POST" id="update_testimonial_form" class="m-form m-form--fit m-form--label-align-right m-form--group-seperator" data-async data-callback="updateTestimonialCallback" data-parsley-validate enctype="multipart/form-data">
+    @csrf
+    <input type="hidden" name="id" id="id" value="{{$testimonial->id}}" />
+    <div class="m-portlet__body">
+        <div class="fancy-checkbox">
+            <input name="is_featured" id="is_featured" type="checkbox" @if($testimonial->is_featured == 1) checked=checked @endif>
+            <label for="is_featured">{{__('testimonials::testimonial.is_featured')}}</label>
+        </div>
+        <div class="form-group row col-12">
+            <div class="repeater">
+                <div data-repeater-list="translations">
+                    @foreach ($testimonial->translations as $translation)
+                    <div data-repeater-item class="row">
+                        <div class="col-6 mt-5">
+                            <!-- <label for="language_id">{{__('testimonials::testimonial.language')}}</label> -->
+                            <select class="form-control" id="language_id" name="language_id" required data-parsley-required data-parsley-required-message="{{__('testimonials::testimonial.please_select_the_language')}}" data-parsley-trigger="change focusout">
+                                <option value="" disabled>{{__('testimonials::testimonial.language')}}</option>
+                                @foreach ($languages as $language)
+                                <option value="{{$language->id}}" @if ($translation->language_id == $language->id) selected @endif>{{$language->code}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-6 mt-5">
+                            {{-- <label for="title">{{__('testimonials::testimonial.title')}}</label> --}}
+                            <input name="title" id="title" type="text" class="form-control" placeholder="{{__('testimonials::testimonial.please_enter_the_testimonial')}}" required data-parsley-required data-parsley-required-message="{{__('testimonials::testimonial.please_enter_the_testimonial')}}" data-parsley-trigger="change focusout" data-parsley-maxlength="150" data-parsley-maxlength-message="{{__('testimonials::testimonial.testimonial_max_is_150_characters_long')}}" value="{{$translation->title}}">
+                        </div>
+                        <div class="col-lg-12">
+                            <label for="description">{{__('testimonials::testimonial.description')}} <small class="text-muted"> - {{__('testimonials::testimonial.optional')}}</small></label>
+                            <textarea rows="6" name="description" id="description" class="form-control" placeholder="{{__('testimonials::testimonial.enter_description')}}" data-parsley-trigger="change focusout" data-parsley-maxlength="4294967295" data-parsley-maxlength-message="{{__('testimonials::testimonial.description_max_is_4294967295_characters_long')}}">{{$translation->description}}</textarea>
+                        </div>
+                        <div class="col-md-2 col-sm-2 mt-auto">
+                            {{-- <label class="control-label">&nbsp;</label> --}}
+                            <a href="javascript:;" data-repeater-delete class="btn btn-brand data-repeater-delete">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    @endforeach
+                    @if (!$testimonial->translations->count())
+                    <div data-repeater-item class="row">
+                        <div class="col-6 mt-5">
+                            <!-- <label for="language_id">{{__('testimonials::testimonial.language')}}</label> -->
+                            <select class="form-control" id="language_id" name="language_id" required data-parsley-required data-parsley-required-message="{{__('testimonials::testimonial.please_select_the_language')}}" data-parsley-trigger="change focusout">
+                                <option value="" selected disabled>{{__('testimonials::testimonial.language')}}</option>
+                                @foreach ($languages as $language)
+                                <option value="{{$language->id}}" @if($language->id == 1) selected @endif>{{$language->code}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-6 mt-5">
+                            <label for="title">{{__('testimonials::testimonial.title')}}</label>
+                            <input name="title" id="title" type="text" class="form-control" placeholder="{{__('testimonials::testimonial.please_enter_the_testimonial')}}" required data-parsley-required data-parsley-required-message="{{__('testimonials::testimonial.please_enter_the_testimonial')}}" data-parsley-trigger="change focusout" data-parsley-maxlength="150" data-parsley-maxlength-message="{{__('testimonials::testimonial.testimonial_max_is_150_characters_long')}}">
+                        </div>
+                        <div class="col-lg-12">
+                            <label for="description">{{__('testimonials::testimonial.description')}}</label>
+                            <textarea rows="6" name="description" id="description" class="form-control" placeholder="{{__('testimonials::testimonial.enter_description')}}" required data-parsley-required data-parsley-required-message="{{__('testimonials::testimonial.enter_description')}}" data-parsley-trigger="change focusout" data-parsley-maxlength="4294967295" data-parsley-maxlength-message="{{__('testimonials::testimonial.description_max_is_4294967295_characters_long')}}"></textarea>
+                        </div>
+                        <div class="col-md-2 col-sm-2 mt-auto">
+                            {{-- <label class="control-label">&nbsp;</label> --}}
+                            <a href="javascript:;" data-repeater-delete class="btn btn-brand data-repeater-delete">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    @endif
+                </div>
+                <a href="javascript:;" data-repeater-create id="repeater_btn" class="btn">
+                    <i class="fa fa-plus"></i> {{trans('testimonials::testimonial.add_testimonial_translation')}}
+                </a>
+            </div>
+            <div class="form-group col-12 d-flex">
+                <div class="col-8 mt-5">
+                    <label for="name">{{__('testimonials::testimonial.name')}}</label>
+                    <input name="name" id="name" value="{{$testimonial->name}}" type="text" class="form-control" placeholder="{{__('testimonials::testimonial.please_enter_the_name')}}" required data-parsley-required data-parsley-required-message="{{__('testimonials::testimonial.please_enter_the_name')}}" data-parsley-trigger="change focusout" data-parsley-maxlength="150" data-parsley-maxlength-message="{{__('testimonials::testimonial.name_max_is_150_characters_long')}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <h4 class="kt-section__title kt-section__title-lg kt-margin-b-0">{{__('testimonials::testimonial.attachments')}}:</h4>
+                    </div>
+                    <div class="row">
+                        <div class="box">
+                            <label for="description">{{__('testimonials::testimonial.attachments')}} <small class="text-muted"> - {{__('testimonials::testimonial.optional')}}</small></label>
+                            <input type="file" name="attachments[]" multiple class="inputfile inputfile-5" id="file-6" data-multiple-caption="{count} {{trans('testimonials::testimonial.files_selected')}}" />
+                            <label for="file-6">
+                                <figure><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                                        <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" /></svg></figure> <span></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        @foreach ($attachments as $attachment)
+                        @if(!$attachment->is_deleted)
+                        @if (in_array($attachment->mime_type, ['tiff', 'image/tiff', 'jpeg', 'image/jpeg', 'gif', 'image/gif', 'png', 'image/png']))
+                        <div class="card" id="card-{{$attachment->id}}">
+                            <a class="html5lightbox" title="" data-group="image_group" href="{{asset('storage/'.$attachment->id.'/'.$attachment->file_name)}}" data-width="800" data-height="800" title="{{trans('testimonials::testimonial.view_image')}}">
+                                <img class="card-img-top" src="{{asset('storage/'.$attachment->id.'/'.$attachment->file_name)}}" alt="{{trans('testimonials::testimonial.image')}}">
+                            </a>
+                            <div class="card-body" style="text-align: center !important;">
+                                {{-- <h5 class="card-title">Card title that wraps to a new line</h5> --}}
+                                {{-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> --}}
+                                <button type="button" class="btn btn-danger" onclick="deleteAttachment({{$attachment->id}});"><i class="fas fa-trash-alt"></i> {{trans('testimonials::testimonial.delete')}}</button>
+                            </div>
+                            @endif
+                        </div>
+                        @endif
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
+            <div class="m-form__actions m-form__actions--solid">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <button type="submit" class="btn btn-success btn-brand">{{trans('testimonials::testimonial.update_testimonial')}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>
+@endsection
+<!--end::Form-->
+
+<!-- Callback function -->
+<script>
+    function updateTestimonialCallback() {
+        // Close modal
+        $('#fast_modal').modal('toggle');
+        // Reload datatable
+        $('#testimonials_table').DataTable().ajax.reload(null, false);
+    }
+</script>
+@push('scripts')
+<script src="{{asset('8x/assets/js/repeater.js')}}" type="text/javascript"></script>
+<script>
+    $(document).ready(function() {
+        $('.repeater').repeater({
+            // (Required if there is a nested repeater)
+            // Specify the configuration of the nested repeaters.
+            // Nested configuration follows the same format as the base configuration,
+            // supporting options "defaultValues", "show", "hide", etc.
+            // Nested repeaters additionally require a "selector" field.
+            repeaters: [{
+                // (Required)
+                // Specify the jQuery selector for this nested repeater
+                selector: '.inner-repeater'
+            }]
+        });
+    });
+</script>
+<script>
+    // Initialize select picker for repeated items
+    $("#repeater_btn").click(function() {
+        setTimeout(function() {
+            // $(".selectpicker").selectpicker('refresh');
+        }, 100);
+    });
+</script>
+<script>
+    function deleteAttachment(id) {
+        KTApp.blockPage({
+            overlayColor: "#000000",
+            type: "loader",
+            state: "success",
+            message: "{{trans('main.please_wait')}}"
+        });
+        $.ajax({
+            url: "{{route('testimonials.deleteAttachment')}}",
+            type: "POST",
+            data: {
+                id: id
+            },
+            success: function(response) {
+                // UnblockUI
+                KTApp.unblockPage();
+
+                // Show notification
+                if (response.status) {
+                    // Remove attachment div
+                    $('#card-' + id).remove();
+                } else {
+                    showNotification(response.message, "{{trans('main.error')}}", 'la la-warning', null, 'danger', true, true, true);
+                }
+            },
+            error: function(xhr, error_text, statusText) {
+                // UnblockUI
+                KTApp.unblockPage();
+
+                if (xhr.status == 401) {
+                    // Unauthorized
+                    if (xhr.responseJSON.error) {
+                        setTimeout(function() {
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                            showMsg(form, 'danger', xhr.responseJSON.error, true);
+                        }, 500);
+                        showNotification(xhr.responseJSON.error, "{{trans('main.error')}}", 'la la-warning', null, 'danger', true, true, true);
+                    } else {
+                        setTimeout(function() {
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                            showMsg(form, 'danger', statusText, true);
+                        }, 500);
+                        showNotification(statusText, "{{trans('main.error')}}", 'la la-warning', null, 'danger', true, true, true);
+                    }
+                } else if (xhr.status == 422) {
+                    // HTTP_UNPROCESSABLE_ENTITY
+                    if (xhr.responseJSON.errors) {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        $.each(xhr.responseJSON.errors, function(index, error) {
+                            setTimeout(function() {
+                                if (index === 0) {
+                                    var remove_previous_alerts = true;
+                                } else {
+                                    var remove_previous_alerts = false;
+                                }
+                                showMsg(form, 'danger', error.message, remove_previous_alerts);
+                            }, 500);
+                            showNotification(error.message, "{{trans('main.error')}}", 'la la-warning', null, 'danger', true, true, true);
+                        });
+                    } else {
+                        setTimeout(function() {
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                            showMsg(form, 'danger', statusText, true);
+                        }, 500);
+                        showNotification(statusText, "{{trans('main.error')}}", 'la la-warning', null, 'danger', true, true, true);
+                    }
+                } else if (xhr.status == 500) {
+                    // Internal Server Error
+                    var error = xhr.responseJSON.message;
+                    if (xhr.responseJSON.error) {
+                        setTimeout(function() {
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                            showMsg(form, 'danger', xhr.responseJSON.error, true);
+                        }, 500);
+                        showNotification(xhr.responseJSON.error, "{{trans('main.error')}}", 'la la-warning', null, 'danger', true, true, true);
+                    } else {
+                        setTimeout(function() {
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                            showMsg(form, 'danger', statusText, true);
+                        }, 500);
+                        showNotification(statusText, "{{trans('main.error')}}", 'la la-warning', null, 'danger', true, true, true);
+                    }
+                }
+            }
+        });
+    }
+</script>
+@endpush

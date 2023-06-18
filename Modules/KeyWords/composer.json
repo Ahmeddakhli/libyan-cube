@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/key_words",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\KeyWords\\Providers\\KeyWordsServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\KeyWords\\": ""
+        }
+    }
+}

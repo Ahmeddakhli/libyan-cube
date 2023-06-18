@@ -1,0 +1,15 @@
+{
+    "name": "Internationalizations",
+    "alias": "internationalizations",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Internationalizations\\Providers\\InternationalizationsServiceProvider",
+        "Modules\\Internationalizations\\Providers\\InternationalizationsEventServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

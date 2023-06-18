@@ -1,0 +1,14 @@
+{
+    "name": "SEO",
+    "alias": "SEO",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\SEO\\Providers\\SeoServiceProvider",
+        "Modules\\SEO\\Providers\\SeoEventServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

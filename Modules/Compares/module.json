@@ -1,0 +1,14 @@
+{
+    "name": "Compares",
+    "alias": "compares",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\Compares\\Providers\\ComparesServiceProvider",
+        "Modules\\Compares\\Providers\\ComparesEventServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
